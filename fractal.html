@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <canvas id="s" width="400" height="400"></canvas>
+  <script>
+    var M = Math,
+      c = s.getContext('2d'),
+      d = M.PI / 6;
+    c.lineWidth = .1;
+    j = o => (t = (x, y, a, h) => {
+      if (h) {
+        var z = x + (M.cos(a * d) * h * 5),
+          v = y + (M.sin(a * d) * h * 5);
+        c.moveTo(x, y);
+        c.lineTo(z, v);
+        t(z, v, a - 2, h - 1);
+        t(z, v, a + 2, h - 1);
+      }
+    })(100, 300, 3 * o, 14);
+    c.beginPath();
+    j(-1);
+    j(1);
+    j(0);
+    j(2);
+    c.closePath();
+    c.stroke();
+  </script>
+</body>
+
+</html>
